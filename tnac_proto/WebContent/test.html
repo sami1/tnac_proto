@@ -1,0 +1,43 @@
+<html>
+<head>
+  <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+  <script type='text/javascript'>
+   google.load('visualization', '1', {'packages': ['geomap']});
+   google.setOnLoadCallback(drawMap);
+
+    function drawMap() {
+      var data = new google.visualization.DataTable();
+      data.addRows(6);
+      data.addColumn('string', 'Region');
+      data.addColumn('number', 'Votes');
+      data.setValue(0, 0, 'Ariana');
+      data.setValue(0, 1, 200);
+      data.setValue(1, 0, 'Béja');
+      data.setValue(1, 1, 300);
+      data.setValue(2, 0, 'Bizerte');
+      data.setValue(2, 1, 400);
+      data.setValue(3, 0, 'Gabès');
+      data.setValue(3, 1, 5000);
+      data.setValue(4, 0, 'Gafsa');
+      data.setValue(4, 1, 600);
+      data.setValue(5, 0, 'Jendouba');
+      data.setValue(5, 1, 700);
+
+      var options = {};
+      options['region'] = 'TN';
+      options['showZoomOut']=true;
+      options['dataMode'] = 'regions';
+
+      var container = document.getElementById('map_canvas');
+      var geomap = new google.visualization.GeoMap(container);
+      geomap.draw(data, options);
+    };
+
+  </script>
+</head>
+
+<body>
+    <div id='map_canvas'></div>
+</body>
+
+</html>

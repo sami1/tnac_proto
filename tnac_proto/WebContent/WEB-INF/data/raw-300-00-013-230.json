@@ -1,0 +1,167 @@
+{
+  "delegation": {
+    "name": "00",
+    "code": "00"
+  },
+  "circonscription": {
+    "name": "Italie",
+    "code": "300"
+  },
+  "bureau_vote": {
+    "name": "230",
+    "code": "230"
+  },
+  "centre_vote": {
+    "name": "013",
+    "code": "013"
+  },
+  "resultat": {
+    "listes": [
+      {
+        "num": 21,
+        "pourcentage": 48.71794891357422,
+        "vote": 19,
+        "name": "قائمة حركة النهضة"
+      },
+      {
+        "num": 17,
+        "pourcentage": 17.948719024658203,
+        "vote": 7,
+        "name": "قائمة العريضة الشعبية للحرية والعدالة والتنمية"
+      },
+      {
+        "num": 1,
+        "pourcentage": 5.128205299377441,
+        "vote": 2,
+        "name": "قائمة حزب التكتل الديمقراطي من أجل العمل والحريات"
+      },
+      {
+        "num": 4,
+        "pourcentage": 5.128205299377441,
+        "vote": 2,
+        "name": "قائمة حزب المؤتمر من أجل الجمهورية"
+      },
+      {
+        "num": 12,
+        "pourcentage": 5.128205299377441,
+        "vote": 2,
+        "name": "قائمة القطب الديمقراطي الحداثي"
+      },
+      {
+        "num": 20,
+        "pourcentage": 5.128205299377441,
+        "vote": 2,
+        "name": "قائمة الحزب الديمقراطي التقدمي"
+      },
+      {
+        "num": 7,
+        "pourcentage": 2.5641026496887207,
+        "vote": 1,
+        "name": "قائمة إرادة الشعب"
+      },
+      {
+        "num": 15,
+        "pourcentage": 2.5641026496887207,
+        "vote": 1,
+        "name": "قائمة الأمل"
+      },
+      {
+        "num": 18,
+        "pourcentage": 2.5641026496887207,
+        "vote": 1,
+        "name": "التفاني في خدمة الوطن"
+      },
+      {
+        "num": 19,
+        "pourcentage": 2.5641026496887207,
+        "vote": 1,
+        "name": "قائمة حركة الوطنيون الديمقراطيون"
+      },
+      {
+        "num": 22,
+        "pourcentage": 2.5641026496887207,
+        "vote": 1,
+        "name": "قائمة حركة الشعب"
+      },
+      {
+        "num": 2,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "توانسة عبر الحدود"
+      },
+      {
+        "num": 3,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "نداء الحرية"
+      },
+      {
+        "num": 5,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "الوعد"
+      },
+      {
+        "num": 6,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "قائمة العمل والإصلاح"
+      },
+      {
+        "num": 8,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "صوت المهاجر"
+      },
+      {
+        "num": 9,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "لا خوف بعد اليوم"
+      },
+      {
+        "num": 10,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "المسار الثوري"
+      },
+      {
+        "num": 11,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "قائمة حزب الوسط الاجتماعي"
+      },
+      {
+        "num": 13,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "الديمقراطيون التونسيون بإيطاليا"
+      },
+      {
+        "num": 14,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "المهاجرون الأحرار"
+      },
+      {
+        "num": 16,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "قائمة حزب الأمة الديمقراطي الاجتماعي"
+      }
+    ],
+    "bulletins": {
+      "endommage": 0,
+      "dans_urne": 23,
+      "correct": 39,
+      "non_utilise": 408,
+      "delivre": 450,
+      "blancs": 2,
+      "annule": 1
+    },
+    "electeurs": {
+      "votant": 23,
+      "enregistre": 195
+    }
+  }
+}

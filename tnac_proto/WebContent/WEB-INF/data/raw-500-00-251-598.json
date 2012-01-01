@@ -1,0 +1,149 @@
+{
+  "delegation": {
+    "name": "00",
+    "code": "00"
+  },
+  "circonscription": {
+    "name": "Ameriques et Reste Europe",
+    "code": "500"
+  },
+  "bureau_vote": {
+    "name": "598",
+    "code": "598"
+  },
+  "centre_vote": {
+    "name": "251",
+    "code": "251"
+  },
+  "resultat": {
+    "listes": [
+      {
+        "num": 15,
+        "pourcentage": 28.92561912536621,
+        "vote": 35,
+        "name": "قائمة حركة النهضة"
+      },
+      {
+        "num": 10,
+        "pourcentage": 28.099172592163086,
+        "vote": 34,
+        "name": "قائمة حزب المؤتمر من أجل الجمهورية"
+      },
+      {
+        "num": 6,
+        "pourcentage": 21.48760223388672,
+        "vote": 26,
+        "name": "قائمة حزب التكتل الديمقراطي من أجل العمل والحريات"
+      },
+      {
+        "num": 8,
+        "pourcentage": 4.958677768707275,
+        "vote": 6,
+        "name": "قائمة الحزب الديمقراطي التقدمي"
+      },
+      {
+        "num": 12,
+        "pourcentage": 4.958677768707275,
+        "vote": 6,
+        "name": "قائمة القطب الديمقراطي الحداثي"
+      },
+      {
+        "num": 5,
+        "pourcentage": 3.3057849407196045,
+        "vote": 4,
+        "name": "قائمة حزب آفاق تونس"
+      },
+      {
+        "num": 16,
+        "pourcentage": 1.6528924703598022,
+        "vote": 2,
+        "name": "من أجل تصحيح المسار"
+      },
+      {
+        "num": 18,
+        "pourcentage": 1.6528924703598022,
+        "vote": 2,
+        "name": "قائمة المستقلة لتونس الغد"
+      },
+      {
+        "num": 2,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "المهاجرون المستقلون"
+      },
+      {
+        "num": 3,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "الوفاق المهجري التونسي"
+      },
+      {
+        "num": 7,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "الأصالة و المعاصرة"
+      },
+      {
+        "num": 13,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "قائمة أمل المستقلة"
+      },
+      {
+        "num": 17,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "القائمة المستقلة شغل حرية كرامة عدالة"
+      },
+      {
+        "num": 19,
+        "pourcentage": 0.8264462351799011,
+        "vote": 1,
+        "name": "المسار الثوري"
+      },
+      {
+        "num": 1,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "القائمة المستقلة التقدمية للحريات و العدالة الإجتماعية"
+      },
+      {
+        "num": 4,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "قائمة الوفاء "
+      },
+      {
+        "num": 9,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "النصر لأحرار تونس"
+      },
+      {
+        "num": 11,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "قائمة الإخلاص"
+      },
+      {
+        "num": 14,
+        "pourcentage": 0,
+        "vote": 0,
+        "name": "فجر الثورة"
+      }
+    ],
+    "bulletins": {
+      "endommage": 0,
+      "dans_urne": 96,
+      "correct": 121,
+      "non_utilise": 78,
+      "delivre": 200,
+      "blancs": 0,
+      "annule": 1
+    },
+    "electeurs": {
+      "votant": 96,
+      "enregistre": 351
+    }
+  }
+}
