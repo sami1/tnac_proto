@@ -71,7 +71,7 @@ function loadAggResult(path){
 
 function loadResult(path){
 	$.ajax({
-		   url: 'couch'+"/"+"tnac/v1/bureau/"+path,
+		   url: 'lcouch'+"/"+path,
 		   type: 'get',
 		   success: function(data) {
 			   buildView(data);
