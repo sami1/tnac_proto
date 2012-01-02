@@ -35,14 +35,22 @@ public class ElusAggrregator extends HttpServlet {
 		String aggPath=request.getPathInfo();
 		if (aggPath.startsWith("/"))
 			aggPath=aggPath.substring(1);
-		aggPath=aggPath.replace("/", "-");
-		File file=new File(container,aggPath+".json");
-		if (!file.exists()){
-			response.getWriter().println("{error:0}");
-		}
-		else{
+		File file=null;
+		if (aggPath.isEmpty()){
+			file=new File(container,"all.json");
 			String json=FileUtils.readFileToString(file,"UTF-8");
 			response.getWriter().println(json);
+		}
+		else{
+			aggPath=aggPath.replace("/", "-");
+			file=new File(container,aggPath+".json");
+			if (!file.exists()){
+				response.getWriter().println("{error:0}");
+			}
+			else{
+				String json=FileUtils.readFileToString(file,"UTF-8");
+				response.getWriter().println(json);
+			}
 		}
 	}
 
