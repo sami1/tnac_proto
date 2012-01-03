@@ -32,7 +32,7 @@
           map.addPopup(popup);
       }
 
-      function onFeatureUnselect(feature) {
+      function onFeatureUnselect(feature) { 
           map.removePopup(feature.popup);
           feature.popup.destroy();
           feature.popup = null;

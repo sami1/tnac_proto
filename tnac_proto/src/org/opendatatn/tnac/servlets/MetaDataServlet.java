@@ -30,7 +30,10 @@ public class MetaDataServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		File container = new File(config.getServletContext().getRealPath("/")+ "/WEB-INF/metadata");//assumes exploded directory
-		MetadataFromFiles.getInstance().initialize(container);
+		JSONObject root=MetadataFromFiles.getInstance().initialize(container);
+		config.getServletContext().setAttribute("root", root);
+		config.getServletContext().setAttribute("tree", new TreeBuilder(root).getHTML());
+
 	}
 
 

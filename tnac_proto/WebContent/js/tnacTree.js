@@ -169,8 +169,19 @@ function link (name,isFolder,path)
 }
 
 $(document).ready(function(){
+	   $("#tnacTree").treeview({
+	    	collapsed: true,
+	  });	
+	   $("a.res").click(function(event){
+			 event.preventDefault();
+			 loadResult($(this).attr("href"));
+		 });
+	   $("a.agg").click(function(event){
+			 event.preventDefault();
+			 loadAggResult($(this).attr("href"));
+		 });
 
-	$.ajax({
+	/*$.ajax({
 		   url: 'md',
 		   type: 'get',
 		   success: function(data) {
@@ -180,6 +191,6 @@ $(document).ready(function(){
 			   glengthRoot=gArray.length;
 			   buildRoot();
 			}
-		});
+		});*/
 
 }); 

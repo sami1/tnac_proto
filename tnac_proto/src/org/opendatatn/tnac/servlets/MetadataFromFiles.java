@@ -29,13 +29,14 @@ public class MetadataFromFiles {
 	static String filePrefix="raw";
 	static String filePostfix=".csv";
 	
-	public synchronized void initialize(File container){
+	public synchronized JSONObject initialize(File container){
 		File persisted=new File(container,"root.json");
 		if (persisted.exists()){
 			try {
 				String json=FileUtils.readFileToString(persisted,"UTF-8");
 				root=new JSONObject(new JSONTokener(json));
-				return;
+				System.out.println(new TreeBuilder(root).getHTML());
+				return root;
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -83,6 +84,8 @@ public class MetadataFromFiles {
 		System.out.println("centr:"+countCt);
 		System.out.println("bur:"+countB);
 		System.out.println("total time:"+(System.currentTimeMillis()-t)/1000);
+		System.out.println(new TreeBuilder(root).getHTML());
+		return root;
 	}
 
 

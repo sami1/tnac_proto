@@ -129,11 +129,11 @@ img {
 	background:#f4f4f4;	/* left column background colour */
 }
 .leftmenu .col1 {
-	width:81%;			/* right column content width */
-	left:108%;			/* 100% plus left column left padding */
+	width:78%;			/* right column content width */
+	left:102%;			/* 100% plus left column left padding */
 }
 .leftmenu .col2 {
-	width:15%;			/* left column content width (column width minus left and right padding) */
+	width:20%;			/* left column content width (column width minus left and right padding) */
 	left:2%;			/* (right column left and right padding) plus (left column left padding) */
 }
 /* Footer styles */
@@ -225,3 +225,34 @@ table.overview thead  tr td{
 	font-size: large;
 }
 
+
+.point {
+position:absolute;
+display:none;
+padding:10px 15px;
+background:#7BB9F0;
+font-size:14px;
+font-weight:bold;
+-moz-border-radius:8px;
+}
+
+.point .close {
+display:block;
+position:absolute;
+top:-10px;
+right:-10px;
+width:24px;
+height:24px;
+text-indent:-9999px;
+outline:none;
+background:url(../img/close.png) no-repeat;
+}
+
+.point img {
+vertical-align:middle;
+margin-right:10px;
+}
+
+a img {
+border:none;
+}
