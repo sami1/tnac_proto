@@ -33,6 +33,8 @@ public class ElusAggrregator extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String aggPath=request.getPathInfo();
+		if (aggPath==null || aggPath.isEmpty())
+			aggPath="/";
 		if (aggPath.startsWith("/"))
 			aggPath=aggPath.substring(1);
 		File file=null;

@@ -12,14 +12,10 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<link rel="stylesheet"
-	href="http://jquery.bassistance.de/treeview/demo/screen.css"
-	type="text/css" />
-<link rel="stylesheet"
-	href="http://jquery.bassistance.de/treeview/jquery.treeview.css"
-	type="text/css" />
-<script type="text/javascript"
-	src="http://jquery.bassistance.de/treeview/jquery.treeview.js"></script>
+        <link href="kendo/styles/kendo.common.min.css" rel="stylesheet"/>
+        <link href="kendo/styles/kendo.default.min.css" rel="stylesheet"/>
+        <script src="kendo/js/kendo.core.min.js"></script>
+        <script src="kendo/js/kendo.treeview.min.js"></script>
 <script type="text/javascript" src="js/tnacTree.js"></script>
 <link rel="stylesheet" href="css/screen.css" type="text/css" />
 

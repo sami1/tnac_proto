@@ -28,6 +28,7 @@ function getPieData(listes,totalVote){
 }
 
 
+
 function buildRoot(){
 	var appendElements = function() {
 		var index=$("#tnacTree").children().length;
@@ -71,7 +72,7 @@ function loadAggResult(path){
 
 function loadResult(path){
 	$.ajax({
-		   url: 'lcouch'+"/"+path,
+		   url: 'bureau'+"/"+path,
 		   type: 'get',
 		   success: function(data) {
 			   buildView(data);
@@ -124,7 +125,9 @@ function buildView(data){
 	         data: getPieData(data.resultat.listes,data.resultat.bulletins.correct)
 	      }]
 	   });
+	    
 
+	  
 	  window.resizeBy(1, 0); 
 	  window.resizeBy(-1, 0); 
 	  $("#mainView").show();
@@ -169,9 +172,7 @@ function link (name,isFolder,path)
 }
 
 $(document).ready(function(){
-	   $("#tnacTree").treeview({
-	    	collapsed: true,
-	  });	
+	   $("#tnacTree").kendoTreeView();	
 	   $("a.res").click(function(event){
 			 event.preventDefault();
 			 loadResult($(this).attr("href"));
@@ -181,16 +182,16 @@ $(document).ready(function(){
 			 loadAggResult($(this).attr("href"));
 		 });
 
-	/*$.ajax({
-		   url: 'md',
-		   type: 'get',
-		   success: function(data) {
-			   $("#progressbar").progressbar({ value: 1 });
-			   $("#tnacTree").hide();
-			   gArray=data.children;
-			   glengthRoot=gArray.length;
-			   buildRoot();
-			}
-		});*/
+//	$.ajax({
+//		   url: 'md',
+//		   type: 'get',
+//		   success: function(data) {
+//			   $("#progressbar").progressbar({ value: 1 });
+//			   $("#tnacTree").hide();
+//			   gArray=data.children;
+//			   glengthRoot=gArray.length;
+//			   buildRoot();
+//			}
+//		});
 
 }); 
