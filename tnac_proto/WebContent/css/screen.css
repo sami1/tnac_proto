@@ -256,3 +256,30 @@ margin-right:10px;
 a img {
 border:none;
 }
+
+
+.wrapper {
+margin:0 auto;
+width:400px;
+position:relative;
+}
+
+.wrapperc {
+margin:0 auto;
+width:400px;
+position:relative;
+}
+
+#map {
+float:left;
+clear:both;
+width:400px;
+height:820px;
+}
+
+#mapc{
+float:left;
+clear:both;
+width:400px;
+height:420px;
+}
