@@ -2,14 +2,14 @@ function loadData(circons, hover, elem) {
 	if (hover)
 		loadHover(circons, elem);
 	else {
-		createDelegMap(circons);
+		createDelegMap(circons,elem);
 		loadAggResult(circons);
 	}
 }
 
 function loadDelegationData(circons, deleg, hover, elem) {
 	if (hover)
-		loadHover(circons, elem);
+		loadDelegHover(circons,deleg, elem);
 	else
 		loadAggResult(circons + "/" + deleg);
 }
@@ -32,10 +32,43 @@ function buildHoverView(data, elem) {
 	$('#map').after($('<div />').addClass('point'));
 
 	$('.point').html(html).css({
-		left : point.x + point.width,
-		top : point.y + point.height
+		left : 0,
+		top : 500
 	}).fadeIn();
 
+}
+
+function buildDelegHoverView(data, elem) {
+
+	html = "<h1 align='center'>" + data.delegation.name+"</h1>";
+	html=html+"<h3 align='center'> votes:"+data.resultat.electeurs.votant+"</h3>";
+	html=html+"<h3 align='center'> enregistres:"+data.resultat.electeurs.enregistre+"</h3>";
+	html=html+"<h3 align='center'> votes blancs:"+data.resultat.bulletins.blancs+"</h3>";
+	html=html+"<h3 align='center'> votes annules:"+data.resultat.bulletins.annule+"</h3>";
+	html=html+"<h3 align='center'> bulletins delivres:"+data.resultat.bulletins.delivre+"</h3>";
+	html=html+"<h3 align='center'> bulletins endommage:"+data.resultat.bulletins.endommage+"</h3>";
+	var point = elem.getBBox(0);
+
+	$('#mapc').next('.pointd').remove();
+
+	$('#mapc').after($('<div />').addClass('pointd'));
+
+	$('.pointd').html(html).css({
+		left : -200,
+		top : 100
+	}).fadeIn();
+
+}
+
+
+function loadDelegHover(circons,deleg, elem) {
+	$.ajax({
+		url : 'agg' + "/" + circons+"/"+deleg,
+		type : 'get',
+		success : function(data) {
+			buildDelegHoverView(data, elem);
+		}
+	});
 }
 
 function loadHover(circons, elem) {
@@ -48,9 +81,11 @@ function loadHover(circons, elem) {
 	});
 }
 
-function createDelegMap(circons) {
+function createDelegMap(circons,elem) {
 
 	$.getJSON('svg/' + circons + '.json', function(data) {
+		var matrix=data.matrix;
+		var f=elem.getBBox(false);
 		var paths = data;
 		var paper=Raphael('mapc');
 		var r = paper, attributes = {
@@ -60,13 +95,15 @@ function createDelegMap(circons) {
 			'stroke-linejoin' : 'round'
 		}, arr = new Array();
 		for ( var deleg in paths) {
-
+			if (deleg=='matrix'){
+				continue;
+			}
 			var obj = r.path(paths[deleg].path);
 			obj.attr(attributes);
-
 			arr[obj.id] = deleg;
 
 			obj.hover(function() {
+				$('.point').fadeOut();
 				var s = paths[arr[this.id]].deleg;
 				loadDelegationData(circons, s, true, this);
 				this.animate({
@@ -76,7 +113,7 @@ function createDelegMap(circons) {
 				}, 300);
 
 			}, function() {
-				$('.point').fadeOut();
+				$('.pointd').fadeOut();
 				this.animate({
 					fill : attributes.fill,
 					stroke : attributes.stroke,
@@ -90,6 +127,7 @@ function createDelegMap(circons) {
 			});
 
 		}
+
 	});
 
 }
@@ -112,6 +150,7 @@ $(function() {
 		arr[obj.id] = country;
 
 		obj.hover(function() {
+			$('.pointd').fadeOut();
 			var s = paths[arr[this.id]].circons;
 			loadData(s, true, this);
 			this.animate({
@@ -128,11 +167,12 @@ $(function() {
 				'stroke-width' : 1
 			}, 300);
 		}).click(function() {
+			$('#mapc').next('.pointd').remove();
 			$('#mapc').html("");
 			document.location.hash = arr[this.id];
 
 			var s = paths[arr[this.id]].circons;
-			loadData(s, false);
+			loadData(s, false,this);
 
 		});
 

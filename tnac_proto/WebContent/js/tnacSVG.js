@@ -83,7 +83,7 @@ function buildView(data){
 	  }
 	  $("#mainView").hide();
 	  var table=buildOverview(data);
-	  var container='<div id="container" class="highcharts-container" style="height: 640px; clear: both;width:820px;"></div>';
+	  var container='<center><div id="container" class="highcharts-container" style="height: 600px; clear: both;width:800px"></div></center>';
 
 	  $("#mainView").html(table+container);
 

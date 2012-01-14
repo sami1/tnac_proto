@@ -236,6 +236,15 @@ font-weight:bold;
 -moz-border-radius:8px;
 }
 
+.pointd	 {
+position:absolute;
+display:none;
+padding:10px 15px;
+background:#7BB9F0;
+font-size:14px;
+font-weight:bold;
+-moz-border-radius:8px;
+}
 .point .close {
 display:block;
 position:absolute;
@@ -266,7 +275,7 @@ position:relative;
 
 .wrapperc {
 margin:0 auto;
-width:400px;
+width:800px;
 position:relative;
 }
 
@@ -280,6 +289,6 @@ height:820px;
 #mapc{
 float:left;
 clear:both;
-width:400px;
+width:800px;
 height:420px;
 }
