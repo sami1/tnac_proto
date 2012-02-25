@@ -36,6 +36,7 @@ public class Bureau extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String callback=request.getParameter("callback");
 		File containerMetadata = new File(request.getServletContext().getRealPath("/")+ "/WEB-INF/data");//assumes exploded directory
 		String rest=request.getPathInfo();
 		if (rest==null)
@@ -56,8 +57,11 @@ public class Bureau extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	    PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
-	    out.println(res);
-	    out.flush();	}
+		String result=res;
+		result=(callback==null)?res:(callback+"("+res+");");
+	    out.println(result);
+	    out.flush();	
+	}
 
 
 }

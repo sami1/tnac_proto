@@ -89,7 +89,7 @@ function buildView(data){
 
 	  
       $("#container").kendoChart({
-          theme: $(document).data("kendoSkin") || "default",
+          theme: $(document).data("kendoSkin") || "BlueOpal",
           title: {
               text: "Resultat par Bureau de vote"
           },

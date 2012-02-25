@@ -1,0 +1,88 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script type='text/javascript'>
+  $(document).ready(function() {
+	  
+	$("#testjsonpCirconscription").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/circonscription/111?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.delegations){
+		  		html=html+json.delegations[d].name+"---"+json.delegations[d].code+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+	
+	
+	$("#testjsonpDelegation").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/delegation/111/52?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.centres){
+		  		html=html+json.centres[d].name+"---"+json.centres[d].code+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+
+	$("#testjsonpCentre").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/centre/111/52/001?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.bureaux){
+		  		html=html+json.bureaux[d].name+"---"+json.bureaux[d].code+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+	$("#testjsonpbureaux").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/bureau/111/52/001/01?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.resultat.listes){
+		  		html=html+json.resultat.listes[d].name+"---"+json.resultat.listes[d].vote+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+	$("#testjsonpagg").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/agg/111?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.resultat.listes){
+		  		html=html+json.resultat.listes[d].name+"---"+json.resultat.listes[d].vote+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+	$("#testjsonpelus").click(function(event){
+		 event.preventDefault();
+		  $.getJSON('http://opendatatn.org/elus/111?callback=?', function(json) { //get information about the user usejquery from twitter api
+			 var html="";
+		  	 for (d in json.listes){
+		  		html=html+json.listes[d].name+"---"+json.listes[d].pourentage+"<br/>";
+		  		for (e in json.listes[d].elus){}
+		  		html=html+"---"+json.listes[d].elus[e].name+"<br/>";
+		  	 }
+		  	 $("#result").html(html);
+		});
+	 });
+
+	
+  });
+  </script>
+</head>
+
+<body>
+  <a href="#" id="testjsonpCirconscription">circons</a>
+  <a href="#" id=testjsonpDelegation>deleg</a>
+   <a href="#" id=testjsonpCentre>centre</a>
+   <a href="#" id=testjsonpbureaux>bureau</a>
+    <a href="#" id=testjsonpagg>agg</a>
+    <a href="#" id=testjsonpelus>elus</a>
+  <div id="result"></div>
+</body>
+
+</html>

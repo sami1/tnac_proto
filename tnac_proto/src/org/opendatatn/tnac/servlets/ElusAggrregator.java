@@ -29,6 +29,7 @@ public class ElusAggrregator extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String callback=request.getParameter("callback");
 		File container = new File(request.getServletContext().getRealPath("/")+ "/WEB-INF/elected/json");//assumes exploded directory
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -47,10 +48,11 @@ public class ElusAggrregator extends HttpServlet {
 			aggPath=aggPath.replace("/", "-");
 			file=new File(container,aggPath+".json");
 			if (!file.exists()){
-				response.getWriter().println("{error:0}");
+				response.getWriter().println((callback==null)?"{error:0}":(callback+"({error:0});"));
 			}
 			else{
 				String json=FileUtils.readFileToString(file,"UTF-8");
+				json=(callback==null)?json:(callback+"("+json+");");
 				response.getWriter().println(json);
 			}
 		}

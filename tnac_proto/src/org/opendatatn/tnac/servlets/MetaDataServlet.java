@@ -48,6 +48,7 @@ public class MetaDataServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String callback=request.getParameter("callback");
 		JSONObject result=MetadataFromFiles.getInstance().getMetadata();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		JsonParser jp = new JsonParser();
@@ -57,6 +58,7 @@ public class MetaDataServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		//System.out.println(prettyJsonString);
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
+		prettyJsonString=(callback==null)?prettyJsonString:(callback+"("+prettyJsonString+");");
 		out.println(prettyJsonString);
 		out.flush();	
 	}

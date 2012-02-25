@@ -34,6 +34,7 @@ public class CouchProxy extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String callback=request.getParameter("callback");
 		String couchApi=request.getPathInfo();
 		CouchJsonLoader loader=new CouchJsonLoader("api.opendatatn.org",couchApi, 80, false);
 		String res=loader.load(false, null);
@@ -45,12 +46,15 @@ public class CouchProxy extends HttpServlet {
 			
 			response.setContentType("application/json; charset=UTF-8");
 			response.setCharacterEncoding("UTF-8");
-		     PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
-		     out.println(prettyJsonString);
-		     out.flush();
+		    PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
+			String result=prettyJsonString;
+			result=(callback==null)?prettyJsonString:(callback+"("+prettyJsonString+");");
+		    out.println(result);
+		    out.flush();
 		}
 		else{
-			response.getWriter().println("{error:0}");
+			res=(callback==null)?"{error:0}":(callback+"("+"{error:0}"+");");
+			response.getWriter().println(res);
 		}
 	}
 

@@ -30,6 +30,7 @@ public class AggregationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String callback=request.getParameter("callback");
 		File container = new File(request.getServletContext().getRealPath("/")+ "/WEB-INF/data");//assumes exploded directory
 		response.setContentType("application/json; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -38,12 +39,15 @@ public class AggregationServlet extends HttpServlet {
 			aggPath=aggPath.substring(1);
 		aggPath=aggPath.replace("/", "-");
 		File file=new File(container,"aggreg-"+aggPath+".json");
+		String result=null;
 		if (!file.exists()){
-			response.getWriter().println("{error:0}");
+			result=(callback!=null)?(callback+"({error:0});"):"{error:0}";
+			response.getWriter().println(result);
 		}
 		else{
 			String json=FileUtils.readFileToString(file,"UTF-8");
-			response.getWriter().println(json);
+			result=(callback!=null)?(callback+"("+json+");"):json;
+			response.getWriter().println(result);
 		}
 	}
 
